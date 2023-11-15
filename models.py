@@ -41,16 +41,16 @@ def getAnswer(dictionary: dict) -> dict:
     answer = dict()
     for key in dictionary:
         try:
-            EmailModel.model_validate({'email': dictionary[key]})
-            answer[key] = 'email'
+            DateModel.model_validate({'date': dictionary[key]})
+            answer[key] = 'date'
         except:
             try:
                 PhoneNumberModel.model_validate({'phoneNumber': dictionary[key]})
                 answer[key] = 'phone'
             except:
                 try:
-                    DateModel.model_validate({'date': dictionary[key]})
-                    answer[key] = 'date'
+                    EmailModel.model_validate({'email': dictionary[key]})
+                    answer[key] = 'email'
                 except:
                     answer[key] = 'text'
     return search(answer)
