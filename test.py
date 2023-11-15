@@ -2,7 +2,7 @@ from fastapi.testclient import TestClient
 from main import app
 
 client = TestClient(app)
-def testGetForm(data):
+def testGetForm(data: str) -> str:
     response = client.post("/get_form/",
                            headers={'accept': 'application/json'},
                            json={"input": data})
